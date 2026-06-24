@@ -2,8 +2,6 @@
 #include <stdlib.h>
 
 int isStepping(int num) {
-  if (num < 10)
-    return 1;
   int prev = num % 10;
   num /= 10;
   while (num > 0) {
