@@ -2,16 +2,11 @@
 #include <stdlib.h>
 
 int isStepping(int num) {
-  int prev = num % 10;
-  num /= 10;
-  while (num > 0) {
-    int curr = num % 10;
-    if (abs(curr - prev) != 1)
-      return 0;
-    prev = curr;
-    num /= 10;
+  if (num < 10) {
+    return 1;
   }
-  return 1;
+
+  return ((abs((num % 10) - ((num / 10) % 10))) == 1 && isStepping(num / 10));
 }
 
 int main() {
