@@ -1,17 +1,33 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+int isStepping(int num) {
+  if (num < 10)
+    return 1;
+  int prev = num % 10;
+  num /= 10;
+  while (num > 0) {
+    int curr = num % 10;
+    if (abs(curr - prev) != 1)
+      return 0;
+    prev = curr;
+    num /= 10;
+  }
+  return 1;
+}
 
 int main() {
-  int num, numU, numL, left, right, ld;
-  printf("lower limit");
-  scanf("%d", &numL);
-  printf("upper limit");
-  scanf("%d", &numU);
+  int start, end;
 
-  ld = num % 10;
-  left = (num * 10) + (ld - 1);
-  right = (num * 10) + (ld + 1);
-  printf("left=%d right=%d", left, right);
+  printf("Enter range: ");
+  scanf("%d %d", &start, &end);
+
+  printf("Stepping Numbers: ");
+
+  for (int i = start; i <= end; i++) {
+    if (isStepping(i))
+      printf("%d ", i);
+  }
+
   return 0;
-
-  // input -> 26
 }
