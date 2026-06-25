@@ -21,7 +21,7 @@ void push(int value) {
 
   top = newNode;
 
-    printf("%d pushed into stack\n", valu
+  printf("%d pushed into stack\n", value);
 }
 
 // Pop operation
