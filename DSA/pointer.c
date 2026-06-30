@@ -12,16 +12,21 @@ struct Node *top = NULL;
 void push(int value) {
   struct Node *newNode;
 
-  newNode = (struct Node *)malloc(
-      sizeof(struct Node)); // memory of new node of 8 bytes created a newNode
+  newNode = (struct Node *)malloc(sizeof(struct Node)); // memory of new node of 8 bytes created a newNode
                             // structure ,
 
-  newNode->data = value;
-  newNode->next = top;
+  if (newNode == NULL) {
+    printf("Stack Overflow\n");
+    return;
+  }
+  else{
+    newNode->data = value;
+    newNode->next = top;
 
-  top = newNode;
+    top = newNode;
 
-  printf("%d pushed into stack\n", value);
+    printf("%d pushed into stack\n", value);
+  }
 }
 
 // Pop operation
